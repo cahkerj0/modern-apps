@@ -32,14 +32,18 @@ spec:
             - "--bigip-password=$(BIGIP_PASSWORD)"
             - "--bigip-url=10.1.1.4"
             - "--bigip-partition=k3s"
+            #for enable specific namespace for CIS to watch
             #- "--namespace=nginx"
             - "--pool-member-type=auto"
+            #for ClusterIP
             #- "--flannel-name=fl-vxlan"
             - "--log-level=DEBUG"
             - "--insecure=true"
             - "--log-as3-response=true"
-            - "--custom-resource-mode=true"
-            #- "--ipam=true"
+            #for CRD
+            #- "--custom-resource-mode=true"
+            #for Ipam
+            - "--ipam=true"
           command: 
             - /app/bin/k8s-bigip-ctlr
           env: 
